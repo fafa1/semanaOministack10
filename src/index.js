@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const routes = require('./routes')
+const cors = require('cors')
 
 const app = express()
 mongoose.connect('mongodb+srv://oministack10:fagner28@cluster0-edoag.mongodb.net/week10?retryWrites=true&w=majority', {
@@ -8,10 +9,11 @@ mongoose.connect('mongodb+srv://oministack10:fagner28@cluster0-edoag.mongodb.net
   useUnifiedTopology: true
 })
 
+app.use(cors())
 app.use(express.json())
 
 app.use(routes)
 
-app.listen(3000, () => {
-  console.log('executando na porta 3000')
+app.listen(3333, () => {
+  console.log('executando')
 })
